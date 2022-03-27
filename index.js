@@ -54,6 +54,8 @@ const io = require('socket.io')(server);
 
 require('./db');
 
+app.use(require('cors')());
+
 const SocketController = require('./src/controllers/socket.controller');
 io.on('connection', SocketController.handleSocketConnection);
 
