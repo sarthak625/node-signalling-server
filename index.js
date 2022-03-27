@@ -11,7 +11,10 @@ const logger = log4js.getLogger('console');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(require('cors')());
+app.use(require('cors')({
+    origin: '*',
+}));
+
 app.use((err, req, res, next) => {
     // This check makes sure this is a JSON parsing issue, but it might be
     // coming from any middleware, not just body-parser:
